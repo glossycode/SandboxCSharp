@@ -12,8 +12,6 @@ namespace SandboxCSharp
             Console.WriteLine("Hello World!");
             var obj1 = (IClass)UnityBuilder.Instance().Container.Resolve<IClass>("BasicClass");
             Console.WriteLine("" + obj1.IsOption1Implemented);
-
-
             Console.WriteLine("" +((IClass)UnityBuilder.Instance().Container.Resolve<IClass>("SubClass1")).IsOption1Implemented);
 
             Console.ReadKey();
