@@ -1,6 +1,10 @@
-﻿using SandboxCSharp.Overriden;
+﻿using SandboxCSharp.Factory;
+using SandboxCSharp.Overriden;
 using SandboxCSharp.Unity;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using Unity;
 
 namespace SandboxCSharp
@@ -9,14 +13,9 @@ namespace SandboxCSharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            var obj1 = (IClass)UnityBuilder.Instance().Container.Resolve<IClass>("BasicClass");
-            Console.WriteLine("" + obj1.IsOption1Implemented);
-            Console.WriteLine("" +((IClass)UnityBuilder.Instance().Container.Resolve<IClass>("SubClass1")).IsOption1Implemented);
-
+            UnityBuilder.Instance().Factories.ForEach(x => x.Run(UnityBuilder.Instance().Container));
+            Console.Write("\r\nHit a key to terminate ... ");
             Console.ReadKey();
-
-
         }
     }
 }
