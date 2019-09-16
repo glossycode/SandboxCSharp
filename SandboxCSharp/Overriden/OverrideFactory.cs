@@ -1,5 +1,4 @@
-﻿using SandboxCSharp.Factory;
-using System;
+﻿using System;
 using Unity;
 
 namespace SandboxCSharp.Overriden
@@ -14,8 +13,6 @@ namespace SandboxCSharp.Overriden
 
         public void Run(IUnityContainer Container)
         {
-            Console.WriteLine("\r\nTesting override operator of properties");
-
             var obj1 = (IClass)Container.Resolve<IClass>("BasicClass");
             Console.WriteLine("The basic type does not have the option implemented :\r\n=>\t" + obj1.IsOption1Implemented);
             Console.WriteLine("The sub class that does have the option implemented :\r\n=>\t" + ((IClass)Container.Resolve<IClass>("SubClass1")).IsOption1Implemented);

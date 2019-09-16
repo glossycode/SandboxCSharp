@@ -1,8 +1,5 @@
 ﻿using AutoMapper;
-using SandboxCSharp.Factory;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Unity;
 
 namespace SandboxCSharp.Mapper
@@ -15,9 +12,7 @@ namespace SandboxCSharp.Mapper
         }
 
         public void Run(IUnityContainer Container)
-        {
-            Console.WriteLine("\r\nTesting AutoMapper");
-
+        {            
             //Step1: Initialize the mapper
             var configuration = new MapperConfiguration(cfg =>
             {
@@ -26,7 +21,7 @@ namespace SandboxCSharp.Mapper
                 .ForMember(dest => dest.Dept, act => act.MapFrom(src => src.Department));
                 cfg.CreateMap<EmployeeDTO, Employee>()
                  .ForMember(dest => dest.Name, act => act.MapFrom(src => src.FullName))
-                .ForMember(dest => dest.Department, act => act.MapFrom(src => src.Dept)); 
+                .ForMember(dest => dest.Department, act => act.MapFrom(src => src.Dept));
             });
             // only during development, validate your mappings; remove it before release
 #if DEBUG

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Unity;
 
-namespace SandboxCSharp.Factory
+namespace SandboxCSharp
 {
     public interface IFactory
     {

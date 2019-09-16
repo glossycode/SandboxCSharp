@@ -1,11 +1,5 @@
-﻿using SandboxCSharp.Factory;
-using SandboxCSharp.Overriden;
-using SandboxCSharp.Unity;
+﻿using SandboxCSharp.Unity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using Unity;
 
 namespace SandboxCSharp
 {
@@ -13,7 +7,13 @@ namespace SandboxCSharp
     {
         static void Main(string[] args)
         {
-            UnityBuilder.Instance().Factories.ForEach(x => x.Run(UnityBuilder.Instance().Container));
+            foreach (var facto in UnityBuilder.Instance().Factories)
+            {                
+                Console.WriteLine($"\r\nTesting {facto.GetType().Name}");
+                facto.Run(UnityBuilder.Instance().Container);
+                Console.WriteLine("");
+            }
+            
             Console.Write("\r\nHit a key to terminate ... ");
             Console.ReadKey();
         }
