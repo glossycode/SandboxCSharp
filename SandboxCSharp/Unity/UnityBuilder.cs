@@ -11,13 +11,13 @@ namespace SandboxCSharp.Unity
 
         // Type-safe generic list of servers
         public IUnityContainer Container { get; } = new UnityContainer();
-        
+
         public List<IFactory> Factories { get; private set; } = new List<IFactory>();
 
         // Note: constructor is 'private'
         private UnityBuilder()
         {
-            Factories = GetAllFactories();
+            Factories = CreateFactories();
             Factories.ForEach(x => DoRegisterFactory(x));
         }
 
@@ -28,17 +28,20 @@ namespace SandboxCSharp.Unity
 
         public void DoRegisterFactory(IFactory factory)
         {
-            if (factory!=null)
+            if (factory != null)
             {
                 factory.DoRegister(Container);
-            }            
+            }
         }
-        
-        public  List<IFactory> GetAllFactories()
+
+        private List<IFactory> CreateFactories()
         {
             List<String> types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())
                  .Where(x => typeof(IFactory).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
                  .Select(x => x.FullName).ToList();
+
+            // sort it alphabetically
+            types.Sort();
 
             var list = new List<IFactory>();
             foreach (var t in types)

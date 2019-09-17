@@ -9,7 +9,7 @@ namespace SandboxCSharp
         {
             foreach (var facto in UnityBuilder.Instance().Factories)
             {                
-                Console.WriteLine($"\r\nTesting {facto.GetType().Name}");
+                Console.WriteLine($"\r\nRunning >> {facto.GetType().FullName}");
                 facto.Run(UnityBuilder.Instance().Container);
                 Console.WriteLine("");
             }
