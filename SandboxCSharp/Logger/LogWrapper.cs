@@ -37,15 +37,15 @@ namespace SandboxCSharp.Logger
 
         public void Debug(string format, params object[] args)
         {
-        //    Debug(Activity.Current, format, args);
-        //}
-        //public void Debug(Activity activity, string format, params object[] args)
-        //{
-        //    if (activity == null) throw new ArgumentNullException("activity");
+            Debug(Activity.Current, format, args);
+        }
+        public void Debug(Activity activity, string format, params object[] args)
+        {
+            if (activity == null) throw new ArgumentNullException("activity");
 
             if (string.IsNullOrWhiteSpace(format)) throw new ArgumentNullException("format");
 
-            //SetActivity(activity);
+            SetActivity(activity);
             if (args != null && args.Length > 0)
             {
                 _logger.DebugFormat(CultureInfo.InvariantCulture, format, args);
@@ -63,16 +63,16 @@ namespace SandboxCSharp.Logger
 
         public void Info(string format, params object[] args)
         {
-        //    Info(Activity.Current, format, args);
-        //}
+            Info(Activity.Current, format, args);
+        }
 
-        //public void Info(Activity activity, string format, params object[] args)
-        //{
-        //    if (activity == null) throw new ArgumentNullException("activity");
+        public void Info(Activity activity, string format, params object[] args)
+        {
+            if (activity == null) throw new ArgumentNullException("activity");
 
             if (string.IsNullOrWhiteSpace(format)) throw new ArgumentNullException("format");
 
-            //SetActivity(activity);
+            SetActivity(activity);
             if (args != null && args.Length > 0)
             {
                 _logger.InfoFormat(CultureInfo.InvariantCulture, format, args);
@@ -90,16 +90,16 @@ namespace SandboxCSharp.Logger
 
         public void Warn(string format, params object[] args)
         {
-        //    Warn(Activity.Current, format, args);
-        //}
+            Warn(Activity.Current, format, args);
+        }
 
-        //public void Warn(Activity activity, string format, params object[] args)
-        //{
-        //    if (activity == null) throw new ArgumentNullException("activity");
+        public void Warn(Activity activity, string format, params object[] args)
+        {
+            if (activity == null) throw new ArgumentNullException("activity");
 
             if (string.IsNullOrWhiteSpace(format)) throw new ArgumentNullException("format");
 
-            //SetActivity(activity);
+            SetActivity(activity);
 
             if (args != null && args.Length > 0)
             {
@@ -113,18 +113,18 @@ namespace SandboxCSharp.Logger
 
         public void Warn(Exception exception, string format, params object[] args)
         {
-        //    Warn(exception, Activity.Current, format, args);
-        //}
+            Warn(exception, Activity.Current, format, args);
+        }
 
-        //public void Warn(Exception exception, Activity activity, string format, params object[] args)
-        //{
-        //    if (activity == null) throw new ArgumentNullException("activity");
+        public void Warn(Exception exception, Activity activity, string format, params object[] args)
+        {
+            if (activity == null) throw new ArgumentNullException("activity");
 
             if (exception == null) throw new ArgumentNullException("exception");
 
             if (string.IsNullOrWhiteSpace(format)) throw new ArgumentNullException("format");
 
-            //SetActivity(activity);
+            SetActivity(activity);
 
             // Use log4net.Util.SystemStringFormat to defer string "building" until ToString() is called:
             // If Warn is disabled, string.Format() is never called...
@@ -138,12 +138,12 @@ namespace SandboxCSharp.Logger
 
         public void Error(string format, params object[] args)
         {
-        //    Error(Activity.Current, format, args);
-        //}
+            Error(Activity.Current, format, args);
+        }
 
-        //public void Error(Activity activity, string format, params object[] args)
-        //{
-        //    if (activity == null) throw new ArgumentNullException("activity");
+        public void Error(Activity activity, string format, params object[] args)
+        {
+            if (activity == null) throw new ArgumentNullException("activity");
 
             if (string.IsNullOrWhiteSpace(format)) throw new ArgumentNullException("format");
 
@@ -159,14 +159,14 @@ namespace SandboxCSharp.Logger
 
         public void Error(Exception exception, string format, params object[] args)
         {
-        //    Error(exception, Activity.Current, format, args);
-        //}
+            Error(exception, Activity.Current, format, args);
+        }
 
-        //public void Error(Exception exception, Activity activity, string format, params object[] args)
-        //{
+        public void Error(Exception exception, Activity activity, string format, params object[] args)
+        {
             if (exception == null) throw new ArgumentNullException("exception");
 
-            //if (activity == null) throw new ArgumentNullException("activity");
+            if (activity == null) throw new ArgumentNullException("activity");
 
             if (string.IsNullOrWhiteSpace(format)) throw new ArgumentNullException("format");
 
@@ -184,16 +184,16 @@ namespace SandboxCSharp.Logger
 
         public void Fatal(string format, params object[] args)
         {
-        //    Fatal(Activity.Current, format, args);
-        //}
+            Fatal(Activity.Current, format, args);
+        }
 
-        //public void Fatal(Activity activity, string format, params object[] args)
-        //{
-        //    if (activity == null) throw new ArgumentNullException("activity");
+        public void Fatal(Activity activity, string format, params object[] args)
+        {
+            if (activity == null) throw new ArgumentNullException("activity");
 
             if (string.IsNullOrWhiteSpace(format)) throw new ArgumentNullException("format");
 
-            //SetActivity(activity);
+            SetActivity(activity);
 
             if (args != null && args.Length > 0)
             {
@@ -208,36 +208,36 @@ namespace SandboxCSharp.Logger
 
         public void Fatal(Exception exception, string format, params object[] args)
         {
-        //    Fatal(exception, Activity.Current, format, args);
-        //}
+            Fatal(exception, Activity.Current, format, args);
+        }
 
-        //public void Fatal(Exception exception, Activity activity, string format, params object[] args)
-        //{
+        public void Fatal(Exception exception, Activity activity, string format, params object[] args)
+        {
             if (exception == null) throw new ArgumentNullException("exception");
 
-            //if (activity == null) throw new ArgumentNullException("activity");
+            if (activity == null) throw new ArgumentNullException("activity");
 
             if (string.IsNullOrWhiteSpace(format)) throw new ArgumentNullException("format");
 
-            //SetActivity(activity);
+            SetActivity(activity);
 
             // Use log4net.Util.SystemStringFormat to defer string "building" until ToString() is called:
             // If Fatal is disabled, string.Format() is never called...
             _logger.Fatal(new log4net.Util.SystemStringFormat(CultureInfo.InvariantCulture, format, args), exception);
         }
 
-        //private void SetActivity(Activity activity)
-        //{
-        //    if (activity == null) throw new ArgumentNullException("activity");
+        private void SetActivity(Activity activity)
+        {
+            if (activity == null) throw new ArgumentNullException("activity");
 
-        //    // HACK: For major bug in log4net v1.2.12.0 --> https://issues.apache.org/jira/browse/LOG4NET-398
-        //    if (!IsRunningInUnitTest)
-        //    {
-        //        // Due to the log4net bug 398: Do not use LogicalThreadContext when running in a unit test
-        //        log4net.LogicalThreadContext.Properties["Activity"] = activity;
-        //    }
-        //    // END HACK
-        //}
+            // HACK: For major bug in log4net v1.2.12.0 --> https://issues.apache.org/jira/browse/LOG4NET-398
+            if (!IsRunningInUnitTest)
+            {
+                // Due to the log4net bug 398: Do not use LogicalThreadContext when running in a unit test
+                log4net.LogicalThreadContext.Properties["Activity"] = activity;
+            }
+            // END HACK
+        }
 
         private bool? _isRunningInUnitTest;
 

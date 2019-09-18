@@ -4,6 +4,16 @@ using System.Text;
 
 namespace SandboxCSharp.Logger
 {
+    public class Activity
+    {
+        public static Activity Current { get; internal set; } = new Activity() { Data = Guid.NewGuid().ToString() };
+        public string Data { get; set; } = "empty";
+        public override string ToString()
+        {
+            return $"{Data}";
+        }
+    }
+
     /// <summary>
     /// The ILogger interface is used by the Quickline application to write log messages 
     /// into a log repository (file, database, ...) depending on the log configuration.
@@ -47,36 +57,36 @@ namespace SandboxCSharp.Logger
 
         bool IsDebugEnabled { get; }
         void Debug(string format, params object[] args);
-        //void Debug(Activity activity, string format, params object[] args);
+        void Debug(Activity activity, string format, params object[] args);
 
         bool IsInfoEnabled { get; }
         void Info(string format, params object[] args);
-        //void Info(Activity activity, string format, params object[] args);
+        void Info(Activity activity, string format, params object[] args);
 
         bool IsWarnEnabled { get; }
         void Warn(string format, params object[] args);
-        //void Warn(Activity activity, string format, params object[] args);
+        void Warn(Activity activity, string format, params object[] args);
         void Warn(Exception exception, string format, params object[] args);
-        //void Warn(Exception exception, Activity activity, string format, params object[] args);
+        void Warn(Exception exception, Activity activity, string format, params object[] args);
 
         bool IsErrorEnabled { get; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", MessageId = "Error",
             Justification = "The Error method has been naturalised and is also part of the log4net.ILog interface.")]
         void Error(string format, params object[] args);
-        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", MessageId = "Error",
-        //    Justification = "The Error method has been naturalised and is also part of the log4net.ILog interface.")]
-        //void Error(Activity activity, string format, params object[] args);
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", MessageId = "Error",
+            Justification = "The Error method has been naturalised and is also part of the log4net.ILog interface.")]
+        void Error(Activity activity, string format, params object[] args);
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", MessageId = "Error",
             Justification = "The Error method has been naturalised and is also part of the log4net.ILog interface.")]
         void Error(Exception exception, string format, params object[] args);
-        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", MessageId = "Error",
-        //    Justification = "The Error method has been naturalised and is also part of the log4net.ILog interface.")]
-        //void Error(Exception exception, Activity activity, string format, params object[] args);
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", MessageId = "Error",
+            Justification = "The Error method has been naturalised and is also part of the log4net.ILog interface.")]
+        void Error(Exception exception, Activity activity, string format, params object[] args);
 
         bool IsFatalEnabled { get; }
         void Fatal(string format, params object[] args);
-        //void Fatal(Activity activity, string format, params object[] args);
+        void Fatal(Activity activity, string format, params object[] args);
         void Fatal(Exception exception, string format, params object[] args);
-        //void Fatal(Exception exception, Activity activity, string format, params object[] args);
+        void Fatal(Exception exception, Activity activity, string format, params object[] args);
     }
 }

@@ -20,8 +20,8 @@ namespace SandboxCSharp.Logger
         {
             var logRepository = log4net.LogManager.GetRepository(Assembly.GetEntryAssembly());
             XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
-            var logger = log4net.LogManager.GetLogger(typeof(Program));
-            logger.Info("Start Application");
+
+            GetLogger(typeof(Program)).Info("Start Application");
         }
 
         public static LogManager Instance()
