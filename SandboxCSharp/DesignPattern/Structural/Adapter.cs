@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SandboxCSharp.Logger;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Unity;
@@ -7,6 +8,8 @@ namespace SandboxCSharp.DesignPattern.Structural
 {
     class Adapter : IFactory
     {
+        private readonly ILogger _logger = LogManager.Instance().GetLogger(typeof(Adapter));
+
         public void DoRegister(IUnityContainer Container)
         {
         }
@@ -14,11 +17,11 @@ namespace SandboxCSharp.DesignPattern.Structural
         public void Run(IUnityContainer Container)
         {
             // Non-adapted chemical compound
-
             Compound unknown = new Compound("Unknown");
             unknown.Display();
 
             // Adapted chemical compounds
+            _logger.Info("Create RichCompound");
 
             Compound water = new RichCompound("Water");
             water.Display();

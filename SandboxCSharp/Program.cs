@@ -1,4 +1,5 @@
-﻿using SandboxCSharp.Unity;
+﻿using SandboxCSharp.Logger;
+using SandboxCSharp.Unity;
 using System;
 
 namespace SandboxCSharp
@@ -6,7 +7,7 @@ namespace SandboxCSharp
     class Program
     {
         static void Main(string[] args)
-        {
+        {                        
             int index = 1;
             foreach (var facto in UnityBuilder.Instance().Factories)
             {
