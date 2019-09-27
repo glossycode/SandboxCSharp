@@ -15,6 +15,8 @@ namespace SandboxCSharp.Generic
         {            
             AGeneric.ExecuteWithType();
             AGeneric.ExecuteWithNoType();
+
+            PlayingWithEnumerable.Test();
         }
     }
 }

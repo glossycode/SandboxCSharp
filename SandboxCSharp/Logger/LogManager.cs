@@ -1,5 +1,7 @@
 ﻿using log4net;
+using log4net.Appender;
 using log4net.Config;
+using log4net.Filter;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,8 +20,11 @@ namespace SandboxCSharp.Logger
 
         private LogManager()
         {
+            //log4net.Util.LogLog.InternalDebugging = true;
+
             var logRepository = log4net.LogManager.GetRepository(Assembly.GetEntryAssembly());
-            XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
+            log4net.Config.XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
+            XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));          
 
             GetLogger(typeof(Program)).Info("Start Application");
         }
