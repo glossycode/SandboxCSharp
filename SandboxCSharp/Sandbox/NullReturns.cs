@@ -6,6 +6,7 @@ using Unity;
 
 namespace SandboxCSharp.Sandbox
 {
+    enum ObjectEnum { NullObject, TrueObject }
     class NullReturns : IFactory
     {
         private static readonly ILogger _logger = LogManager.Instance().GetLogger(typeof(NullReturns));
@@ -15,19 +16,19 @@ namespace SandboxCSharp.Sandbox
 
         public void Run(IUnityContainer Container)
         {
-            var obj = GetAnObject(true);
+            var obj = GetAnObject(ObjectEnum.NullObject);
             LogObject(obj);
 
-            obj = GetAnObject(false, false);
+            obj = GetAnObject(ObjectEnum.TrueObject, false);
             LogObject(obj);
 
-            obj = GetAnObject(false, true);
+            obj = GetAnObject(ObjectEnum.TrueObject, true);
             LogObject(obj);
 
-            obj = GetAnObject(true) ?? new NullReturns() { Name = "The left operator object is null"};
+            obj = GetAnObject(ObjectEnum.NullObject) ?? new NullReturns() { Name = "The left operator object is null" };
             LogObject(obj);
 
-            obj = GetAnObject(false) ?? new NullReturns() { Name = "The left operator object is NOT null" };
+            obj = GetAnObject(ObjectEnum.TrueObject) ?? new NullReturns() { Name = "The left operator object is NOT null" };
             LogObject(obj);
         }
 
@@ -36,13 +37,13 @@ namespace SandboxCSharp.Sandbox
             _logger.Debug($"This is an null object, so name is:>{obj?.Name}< and its first child:>{obj?.Children?[0].Name}<");
         }
 
-        NullReturns GetAnObject(bool isNull, bool hasChildren = false)
+        NullReturns GetAnObject(ObjectEnum type, bool hasChildren = false)
         {
-            if (isNull)
+            if (type == ObjectEnum.NullObject)
                 return null;
             if (!hasChildren)
-                return new NullReturns() { Name = "Hello" };
-            else return new NullReturns() { Name = "Hello", Children = new NullReturns[] { new NullReturns() { Name = "Child1" } } };
+                return new NullReturns() { Name = "Hello with no children" };
+            else return new NullReturns() { Name = "Hello from Family", Children = new NullReturns[] { new NullReturns() { Name = "Child1" } } };
 
         }
 
