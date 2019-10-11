@@ -39,7 +39,7 @@ namespace SandboxCSharp.XML
         {
             foreach (XmlNode child in reference.ChildNodes)
             {
-                string xpath = child.GetXPath();
+                string xpath = child.GetXPath();// + "/@name";
                 if (nodeToCompare.SelectSingleNode(xpath) == null)
                 {
                     Console.WriteLine($"{comment} : {xpath}");
