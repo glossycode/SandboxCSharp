@@ -12,7 +12,8 @@ namespace SandboxCSharp.Generic
         }
 
         public void Run(IUnityContainer Container)
-        {            
+        {
+            LynqTest.Test();
             AGeneric.ExecuteWithType();
             AGeneric.ExecuteWithNoType();
 
