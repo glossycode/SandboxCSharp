@@ -15,6 +15,10 @@ namespace SandboxCSharp.XML
 
         public void Run(IUnityContainer Container)
         {
+            TestXPath();
+
+
+
             XmlDocument doc1 = new XmlDocument();
             doc1.Load(@"XML\file1.xml");
 
@@ -24,8 +28,18 @@ namespace SandboxCSharp.XML
             Compare(doc1, doc2);
         }
 
+        private void TestXPath()
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(@"XML\Request.xml");
+
+            XmlNode usernameNode = doc.SelectSingleNode("//AnmeldeDaten/MetaDaten/SystemUsername");
+
+        }
+
         private void Compare(XmlDocument doc1, XmlDocument doc2)
         {
+            
             XmlNode root1 = doc1.DocumentElement;
             XmlNode root2 = doc2.DocumentElement;
 
