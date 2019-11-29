@@ -1,0 +1,28 @@
+<AnmeldeDaten xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" NodeId="0">
+  <MetaDaten>    
+    <SystemUsername>lan.ochampion</SystemUsername>
+    <Role>LAN</Role>
+    <RelocationId>0</RelocationId>
+    <ActivationFees>
+      <ActivationFee ActivationBillingProductId="754" ActivationValue="79.00" Type="Charge">
+        <DiscountReferences />
+      </ActivationFee>
+    </ActivationFees>
+    <IsBundleUpgrade>false</IsBundleUpgrade>
+    <BundleOnly1thOfMonth>false</BundleOnly1thOfMonth>
+    <BundlePromoId>0</BundlePromoId>
+  </MetaDaten>
+  <InstallationsAdresse Firma="" FirmaUId="" IsBusiness="false" AnredeId="1" Name="Farine" Vorname="René" StrassenName="Alpenstrasse" StrasseNr="2" HausKey="0" PLZId="1897" PLZ="3250" Ort="Lyss" StrasseId="94643" FlatId="0" FloorId="0" Geburtsdatum="1979-01-19T00:00:00" Nationalitaet="AUT" Aufenthaltsbewilligung="1" Beruf="" Bewohner="1" EMail="rene@farine.ch" TelPrivat="" TelGeschaeft="" TelMobile="" TelFax="" />
+  <LieferArt Id="4" Name="Quickline Shop Abholung" />
+  <LieferAdresse Firma="Energie Seeland AG" FirmaUId="" IsBusiness="false" AnredeId="5" Name="René Farine" Vorname="QL Kunde" StrassenName="Beundengasse" StrasseNr="1" ZusatzBezeichnung="" HausKey="0" PLZId="0" PLZ="3250" Ort="Lyss" />
+  <PickPost NotificationEMail="false" NotificationSms="false" />
+  <Shop Id="20" Name="Energie Seeland AG" />
+  <HasRechnungsAdresse>false</HasRechnungsAdresse>
+  <RechnungsAdresse Firma="" FirmaUId="" IsBusiness="false" AnredeId="5" Name="" Vorname="" StrassenName="" StrasseNr="" HausKey="0" PLZId="0" PLZ="0" Ort="" Land="" />
+  <HasKontaktAdresse>false</HasKontaktAdresse>
+  <KontaktAdresse Firma="" FirmaUId="" IsBusiness="false" AnredeId="5" Name="" Vorname="" StrassenName="" StrasseNr="" HausKey="0" PLZId="0" PLZ="0" Ort="" Land="" />
+  <Installation VorOrt="false" InstallPartnerUserId="0" InstallUserHoltAb="true" />
+  <PaymentMethod Id="1" Name="Rechnung" EPaymentSubscriptionId="0" />
+  <Notification EMail="false" SMS="false" Suppress="false" />
+  <UserCredentials />
+</AnmeldeDaten>
