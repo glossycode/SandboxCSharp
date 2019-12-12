@@ -4,7 +4,7 @@ using System.Xml;
 using System.Xml.Serialization;
 #pragma warning disable 618
 
-namespace SandboxCSharp.ExamplesFromQMC.XmlSerialize
+namespace SandboxCSharp.QMCExamples.QMCXmlSerialize
 {
     [Serializable]
     public class ProductConfiguration
