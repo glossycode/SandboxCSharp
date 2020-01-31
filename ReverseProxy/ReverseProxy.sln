@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10 Presentation", "10 Presentation", "{AFAD566F-554C-4DD0-98D3-1F0A04B4AFC9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "30 Infrastructure", "30 Infrastructure", "{5E6B9D13-C06E-4DAC-83A9-54B5DBB8D6F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EAB803C1-024E-4635-AB31-F27E7169101D}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.Config = NuGet.Config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReverseProxy.Splunk", "ReverseProxy.Splunk\ReverseProxy.Splunk.csproj", "{501395FB-6688-4AA0-9C13-54C921CBB2B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReverseProxy.Infrastructure.Http", "ReverseProxy.Infrastructure.Http\ReverseProxy.Infrastructure.Http.csproj", "{9753D239-E847-4B91-91B5-1BECB9FB46E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{501395FB-6688-4AA0-9C13-54C921CBB2B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{501395FB-6688-4AA0-9C13-54C921CBB2B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{501395FB-6688-4AA0-9C13-54C921CBB2B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{501395FB-6688-4AA0-9C13-54C921CBB2B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9753D239-E847-4B91-91B5-1BECB9FB46E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9753D239-E847-4B91-91B5-1BECB9FB46E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9753D239-E847-4B91-91B5-1BECB9FB46E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9753D239-E847-4B91-91B5-1BECB9FB46E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{501395FB-6688-4AA0-9C13-54C921CBB2B9} = {AFAD566F-554C-4DD0-98D3-1F0A04B4AFC9}
+		{9753D239-E847-4B91-91B5-1BECB9FB46E4} = {5E6B9D13-C06E-4DAC-83A9-54B5DBB8D6F0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DDF033AD-4F91-4DC1-AB35-12551629218E}
+	EndGlobalSection
+EndGlobal
