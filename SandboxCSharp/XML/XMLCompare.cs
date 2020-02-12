@@ -18,6 +18,8 @@ namespace SandboxCSharp.XML
             TestXPath();
 
 
+            TestXPath2();
+
 
             XmlDocument doc1 = new XmlDocument();
             doc1.Load(@"XML\file1.xml");
@@ -26,6 +28,27 @@ namespace SandboxCSharp.XML
             doc2.Load(@"XML\file2.xml");
 
             Compare(doc1, doc2);
+        }
+
+        private void TestXPath2()
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(@"XML\requestService.xml");
+
+            XmlNode root = doc.DocumentElement;
+            var nodes = root.SelectNodes("//@PromotionId");
+            string result;
+            foreach (XmlNode node in nodes)
+            {
+                result = node.ToString();
+
+                Console.WriteLine($"FOUND : {node.InnerXml}");
+            }
+
+            var nodeSystemUser = root.SelectSingleNode("//QLAnmeldung/MetaDaten/SystemUsername");
+            Console.WriteLine($"SYSTEM USER : {nodeSystemUser.InnerXml}");
+
+
         }
 
         private void TestXPath()
@@ -39,7 +62,7 @@ namespace SandboxCSharp.XML
 
         private void Compare(XmlDocument doc1, XmlDocument doc2)
         {
-            
+
             XmlNode root1 = doc1.DocumentElement;
             XmlNode root2 = doc2.DocumentElement;
 
